@@ -1,5 +1,5 @@
 CREATE TABLE user (
-    id INTERGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     first_name VARCHAR(45) NOT NULL,
     last_name VARCHAR(45) NOT NULL,
     hobbies TEXT,
@@ -10,7 +10,7 @@ INSERT INTO user (
     first_name,
     last_name,
     hobbies
-); VALUES (
+) VALUES (
     "Jane",
     "Doe",
     "Skiing"
@@ -20,7 +20,7 @@ INSERT INTO user (
     first_name,
     last_name,
     hobbies
-); VALUES (
+) VALUES (
     "John",
     "Doe",
     "Surfing"
@@ -30,7 +30,7 @@ INSERT INTO user (
     first_name,
     last_name,
     hobbies
-); VALUES (
+) VALUES (
     "Jane",
     "Roe",
     "Skating"
