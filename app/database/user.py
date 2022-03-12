@@ -42,13 +42,16 @@ def scan():
     return output_formatter(results)
 
 
-def select_bt_id(pk):
+def select_by_id(pk):
     cursor = get_db()
-    cursor.execute("
-        SELECT* FROM user WHERE id=?", (pk, ))
+    cursor.execute(
+        "SELECT * FROM user WHERE id=?", (pk, ))
     results = cursor.fetchall()
     cursor.close()
     return output_formatter(results)
 
 def deactivate_user(pk):
-    
+    cursor = get_db()
+    cursor.execute(
+        "UPDATE TABLE user SET active=0 WHERE id=?", (pk, ))
+    cursor.close()
