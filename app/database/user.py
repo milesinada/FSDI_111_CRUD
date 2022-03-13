@@ -43,8 +43,7 @@ def scan():
 
 
 def select_by_id(pk):
-    cursor = get_db()
-    cursor.execute(
+    cursor = get_db().execute(
         "SELECT * FROM user WHERE id=?", (pk, ))
     results = cursor.fetchall()
     cursor.close()
@@ -55,3 +54,22 @@ def deactivate_user(pk):
     cursor.execute(
         "UPDATE TABLE user SET active=0 WHERE id=?", (pk, ))
     cursor.close()
+
+
+def update(pk, user_data):
+    value_tuple(
+        user_data["first_name"],
+        user_data["last_name"],
+        user_data["hobbies"],
+        pk
+    )
+    stmt = """
+        UPDATE user
+        SET first_name=?,
+        last_name=?,
+        hobbies=?
+        WHERE id=?
+    """
+    cursor = get_db()
+    cursor.execute(stmt, value_tuple)
+    cursor.commit()
