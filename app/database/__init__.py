@@ -1,4 +1,3 @@
-from fcntl import DN_DELETE
 from flask import g
 
 import sqlite3

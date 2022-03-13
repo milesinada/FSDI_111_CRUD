@@ -49,12 +49,6 @@ def select_by_id(pk):
     cursor.close()
     return output_formatter(results)
 
-def deactivate_user(pk):
-    cursor = get_db()
-    cursor.execute(
-        "UPDATE TABLE user SET active=0 WHERE id=?", (pk, ))
-    cursor.close()
-
 
 def update(pk, user_data):
     value_tuple(
@@ -73,3 +67,11 @@ def update(pk, user_data):
     cursor = get_db()
     cursor.execute(stmt, value_tuple)
     cursor.commit()
+
+
+
+def deactivate_user(pk):
+    cursor = get_db().execute(
+        "UPDATE TABLE user SET active=0 WHERE id=?", (pk, ))
+    cursor.commit()
+    cursor.close()
