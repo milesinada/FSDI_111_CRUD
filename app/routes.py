@@ -72,9 +72,9 @@ def update_user(pk):
 
 
 
-@app.delete("/users/<int:pk>")
+@app.put("/deactivate/<int:pk>")
 def deactivate_user(pk):
-    user.deactivate(pk)
+    user.deactivate_user(pk)
     return "", 204
 
 
