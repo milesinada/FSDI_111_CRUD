@@ -11,7 +11,6 @@ from app.database import (user,
 app = Flask(__name__)
 VERSION = "1.0.0"
 
-
 @app.get("/ping")
 def ping():
     resp = {
@@ -19,7 +18,6 @@ def ping():
         "message": "success",
     }
     return resp
-
 
 
 @app.get("/verison")
